@@ -60,7 +60,7 @@ FACEBOOK_APP which equals "app.id.here"
 
 //only 3 lines of codes gets you up & running!
 
-1. must delare getActivity()/activity.this
+1. must delare getActivity() OR activityName.this
 2. boolean is to show toast message(if online/app not installed)
 3. provide your own strings for the toast to use(if boolean is set to false you can set both strings as "" or leave it as it is)
 
