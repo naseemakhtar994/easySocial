@@ -9,9 +9,9 @@
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
-                    <id>bintray-mcs-EasySocial</id>
+                    <id>bintray-mcs-Xstar97</id>
                     <name>bintray</name>
-                    <url>http://dl.bintray.com/mcs/EasySocial</url>
+                    <url>http://dl.bintray.com/mcs/Xstar97</url>
                 </repository>
             </repositories>
             <pluginRepositories>
@@ -19,9 +19,9 @@
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
-                    <id>bintray-mcs-EasySocial</id>
+                    <id>bintray-mcs-Xstar97</id>
                     <name>bintray-plugins</name>
-                    <url>http://dl.bintray.com/mcs/EasySocial</url>
+                    <url>http://dl.bintray.com/mcs/Xstar97</url>
                 </pluginRepository>
             </pluginRepositories>
             <id>bintray</id>
