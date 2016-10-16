@@ -58,20 +58,34 @@ for EX:
 FACEBOOK_APP which equals "app.id.here"
 (if you didn't catch on the name scheme..i feel SO sorry for you)
 
-this way you can call this yourself too to save you even more trouble without having to remember app id's!
+//only 3 lines of codes gets you up & running!
 
-//since i didn't make the jar/aar/libary yet(its actually a ton code pulled from my main closed source app that I think will benefit developers like it did for me!)
+1. must delare getActivity()/activity.this
+2. boolean is to show toast message(if online/app not installed)
+3. provide your own strings for the toast to use(if boolean is set to false you can set both strings as "" or leave it as it is)
 
-BUT for now I will tell you the benefits/features:
-
-0. every social media method is a public static boolvoid(a boolean & void) which can check if the app is installed sending you to the socisl app & if not return false allowing you to use a backup system(ex. webview/etc)
-
-1. checks for internet access internally/another method will allow you to add your own internet boolean from activity/fragment instead of using my internal internet boolean.
-
-2. a custom toast/snackbar to show if app not installed/internet is not available(you provide your own strings for each)
-
-3. progress dialog to wait for the social app to launch.(some apps may take longer to launch for specific/unwkown reasons)
-
-Probably many more features/custom/customizable stuff to implement!
-
-stay tuned for more soon!
+                       //this is for  facebook PAGE so do NOT use ID's for this one
+                        if(!openFacebookPage(getActivity(), "millercreativestudio", true, "not installed!", "no connection!")){
+                            //app not installed...execute something here!
+                        }
+                        
+                        //this a for a facebook PROFILE it can accept number id's & "normal" user names!
+                        if(!openFacebookProfile(getActivity(), "100004301467504", true, "not installed!", "no connection!")){
+                            //app not installed...execute something here!
+                        }
+                        
+                        if(!openTwitterProfile(getActivity(), "xstar97", true, "not installed!", "no connection!")){
+                            //app not installed...execute something here!
+                        }
+                        
+                        if(!openGooglePlusCommunity(getActivity(), "101286674025561115431", true, "not installed!", "no connection!")){
+                            //app not installed...execute something here!
+                        }
+                        
+                        if(!openGooglePlusProfile(getActivity(), "", true, "not installed!", "no connection!")){
+                            //app not installed...execute something here!
+                        }
+                        
+                        if(!openYouTubeVideo(getActivity(), "dQw4w9WgXcQ", true, "not installed!", "no connection!")){
+                            //app not installed...execute something here!
+                        }
