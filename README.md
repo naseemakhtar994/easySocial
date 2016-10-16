@@ -19,23 +19,31 @@ BUT, hey I am developer in his infancy so what the hell do I know?
 
 Have you ever found it difficult to add social media integration into any of your apps?
 
-
 -I am not just talking about "logging" in/out or even signing up, but allowing your users to visit all of your social media pages/profiles/etc inside each respective social media app.
 
 I spent hours trying to do just that...however when one method did work...but ONLY upto a certain SDK or even app version(facebook was a huge d*ck about that!)
-But, I still faced huge problems
+But, I still faced huge problems:
+
 -app installed, not enabled
+
 -no internet connection
+
 -version/sdk specific method
+
 -something bullshit you probably faced here!
 
 So I did even more research (GOGLE!) & came up with a great solution & even wrapped it in a simple "API" for your social media needs.
 
 At The Moment I Only Support: "ATMIOS"
+
 -Facebook
+
 -twitter
+
 -google plus
+
 -youtube
+
 -rate app(basically open google play/aptoide/etc.(aptoide is not all about piracy & its a great SOURCE to distribute your app to!)
 
 PLEASE request to add more social apps!
@@ -56,7 +64,7 @@ this way you can call this yourself too to save you even more trouble without ha
 
 BUT for now I will tell you the benefits/features:
 
-0. every social media method is a public static boolvoid(a boolean & void) which can check if the app is installed sending you to the new app & if not return false allowing you to use a backup system(ex. webview/etc)
+0. every social media method is a public static boolvoid(a boolean & void) which can check if the app is installed sending you to the socisl app & if not return false allowing you to use a backup system(ex. webview/etc)
 
 1. checks for internet access internally/another method will allow you to add your own internet boolean from activity/fragment instead of using my internal internet boolean.
 
