@@ -1,3 +1,5 @@
+###I VAVE NO IDEA HOW TO USE JCENTER, BINTRAY, OR EVEN MAVEN....
+DOWNLOAD THE AAR HERE...https://github.com/Xstar97/easySocial/blob/master/easysocial-release.aar?raw=true
 # easySocial
 easily launch any social app with your page/profile/etc.
 
