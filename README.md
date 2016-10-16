@@ -2,12 +2,17 @@
 easily launch any social app with your page/profile/etc.
 
 pros:
+
 Adding social media integration is great for your app & users because it allows those same users to do the following:
+
 1. read up on your updates/messages/etc
+
 2. share crap about your app with all their friends/families/co-workers/you name it(more users may even try your app!)
+
 3. basically free advertisement/ratings shared to thousands of people!
 
 cons:
+
 Adding social media integration MAY NOT be great for your app & users because it allows those same users to LEAVE your app...& if you send them to a SOCIAL MEDIA APP...then they might not EVER return to your app...so bear that in mind!
 
 BUT, hey I am developer in his infancy so what the hell do I know?
