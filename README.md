@@ -94,8 +94,7 @@ FACEBOOK_APP equals "app.id.here"
                             //app not installed...execute something here!
                         }
                         
-                        if(!openGooglePlusProfile(getActivity(), "115214989786701484331", true, "not installed!", "no connection!")){
-                            //app not installed...execute something here!
+                        if(!openGooglePlusProfile(getActivity(), "115214989786701484331", true, "not installed!", "no connection!")){                               //app not installed...execute something here!
                         }
                         
                         if(!openYouTubeVideo(getActivity(), "dQw4w9WgXcQ", true, "not installed!", "no connection!")){
