@@ -6,7 +6,7 @@ ext {
 
     publishedGroupId = 'com.mcs.easysocial'
     libraryName = 'easysocial'
-    artifact = 'EasySocial'
+    artifact = 'easysocial'
 
     libraryDescription = 'Easily launch social media apps with your social media pages/profiles/communities/etc!'
 
