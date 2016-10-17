@@ -39,15 +39,20 @@ I may drop a jar/aar on jcenter very soon still deciding which will be better.
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
 i have the following public static strings:
+
 A_SOCIAL_MEDIA_NAME_APP
-for EX:
+
+
+For EX:
 FACEBOOK_APP which equals "app.id.here"
 (if you didn't catch on the name scheme..i feel SO sorry for you)
 
 //only 3 lines of codes gets you up & running!
 
 1. must delare getActivity() OR activityName.this
+
 2. boolean is to show toast message(if online/app not installed)
+
 3. provide your own strings for the toast to use(if boolean is set to false you can set both strings as "" or leave it as it is)
 
                        //this is for  facebook PAGE so do NOT use ID's for this one
@@ -68,7 +73,7 @@ FACEBOOK_APP which equals "app.id.here"
                             //app not installed...execute something here!
                         }
                         
-                        if(!openGooglePlusProfile(getActivity(), "", true, "not installed!", "no connection!")){
+                        if(!openGooglePlusProfile(getActivity(), "115214989786701484331", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
                         }
                         
