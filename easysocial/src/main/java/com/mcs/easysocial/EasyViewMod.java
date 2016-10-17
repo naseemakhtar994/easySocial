@@ -21,18 +21,13 @@ public class EasyViewMod {
     public static ProgressDialog progressDialog(final Context context, int style, String message, boolean setIndeterminate, boolean setCancelable){
 
         ProgressDialog pd = new ProgressDialog(context);
-        try {
+
             pd.setProgressStyle(style);
             pd.setMessage(message);
 
             pd.setIndeterminate(setIndeterminate);
             pd.setCancelable(setCancelable);
-
-        }catch (Exception e){
-            e.printStackTrace();
-            pd.cancel();
-            pd.dismiss();
-        }
+        
         return pd;
     }
 }
