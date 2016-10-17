@@ -8,6 +8,7 @@ Have you ever found it difficult to add social media integration into any of you
 -I am not just talking about "logging" in/out or even signing up, but allowing your users to visit all of your social media pages/profiles/etc inside each respective social media app.
 
 I spent hours trying to do just that...however when one method did work...but ONLY upto a certain SDK or even app version(facebook was a huge d*ck about that!)
+
 But, I still faced huge problems:
 
 -app installed, not enabled
@@ -18,7 +19,7 @@ But, I still faced huge problems:
 
 -something bullshit you probably faced here!
 
-So I did even more research (GOGLE!) & came up with a great solution & even wrapped it in a simple "API" for your social media needs.
+So I did even more research (GOOGLE!) & came up with a great solution & even wrapped it in a simple "API" for your social media needs.
 
 At The Moment I Only Support: "ATMIOS"
 
@@ -53,14 +54,18 @@ compile 'com.mcs.easysocial:easysocial:1.0'
 
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
-i have the following public static strings:
+I have the following public static strings:
 
-A_SOCIAL_MEDIA_NAME_APP
+FACEBOOK_APP
+GOOGLE_PLUS_APP
+TWITTER_APP
+YOUTUBE_APP
 
 
 For EX:
-FACEBOOK_APP which equals "app.id.here"
-(if you didn't catch on the name scheme..i feel SO sorry for you)
+FACEBOOK_APP equals "app.id.here"
+
+//this way you dont have to worry about app id's
 
 //only 3 lines of codes gets you up & running!
 
@@ -68,14 +73,17 @@ FACEBOOK_APP which equals "app.id.here"
 
 2. boolean is to show toast message(if online/app not installed)
 
-3. provide your own strings for the toast to use(if boolean is set to false you can set both strings as "" or leave it as it is)
+3. provide your own strings for the toast to use(if boolean is set to false you can set both strings as "" or leave them as is)
+
 
                        //this is for  facebook PAGE so do NOT use ID's for this one
+                       
                         if(!openFacebookPage(getActivity(), "millercreativestudio", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
                         }
                         
                         //this a for a facebook PROFILE it can accept number id's & "normal" user names!
+                        
                         if(!openFacebookProfile(getActivity(), "100004301467504", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
                         }
@@ -95,3 +103,40 @@ FACEBOOK_APP which equals "app.id.here"
                         if(!openYouTubeVideo(getActivity(), "dQw4w9WgXcQ", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
                         }
+                        
+you may be asking what happens throughout the code...well this is what is going on:
+
+1. checks for internet internet access
+2. checks if the app is installed. 
+
+If both return true then it launches the social media app with your page/profile/community/etc....however if any return false a toast message will show stating either no internet access or app not installed...
+if the app is not installed then you can add a webview or offer to launch google play in the false clause of the boolean!
+
+I also made the following static methods public too:
+
+//boolean
+IsAppInstalled(MainActivity.this, "APP_ID_HERE");
+
+//string
+AppVersion(MainActivity.this, "APP_ID_HERE"); returns "1.0"
+AppVersionCode(MainActivity.this, "APP_ID_HERE"); returns 1
+
+//views
+
+//NOT void methods but actual snack, toast & progressDialog implementation! to use these declare them like this!
+
+private SnackBar sn;
+private Toast to;
+private ProgressDialog pd;
+
+sn = snackbar(View view, String string, int LENGTH);
+
+to = toast(Context context, String string, int LENGTH);
+
+pd = progressDialog(final Context context, int style, String message, boolean setIndeterminate, boolean setCancelable);
+
+why?
+
+well so you could use them better since now you can call pd.show();/hide();/cancel();/dismiss();
+
+just like if you implemented yourself!
