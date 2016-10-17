@@ -35,12 +35,17 @@ At The Moment I Only Support: "ATMIOS"
 //to use this library please add this to your project level build gradle like this!
 
 allprojects {
+
     repositories {
         ...
+        
         //this is my repo for now..waiting to add my library to jcenter!
+        
         maven {url = "https://dl.bintray.com/xstar97/Xstar97/" }
+        
         ...
     }
+    
 }
 
 //to use this library please add this to your app level build gradle!
