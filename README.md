@@ -35,8 +35,7 @@ At The Moment I Only Support: "ATMIOS"
 
 //to use this library please add this to your project level build gradle like this!
 
-allprojects {
-
+    allprojects {
     repositories {
         ...
         
@@ -45,12 +44,11 @@ allprojects {
         maven {url = "https://dl.bintray.com/xstar97/Xstar97/" }
         
         ...
-    }
-    
-}
+    }}
 
 //to use this library please add this to your app level build gradle!
-compile 'com.mcs.easysocial:easysocial:1.0'
+      
+    compile 'com.mcs.easysocial:easysocial:1.0'
 
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
@@ -114,29 +112,28 @@ if the app is not installed then you can add a webview or offer to launch google
 
 I also made the following static methods public too:
 
-//boolean
-IsAppInstalled(MainActivity.this, "APP_ID_HERE");
+    //boolean
+    IsAppInstalled(MainActivity.this, "APP_ID_HERE");
 
-//string
-AppVersion(MainActivity.this, "APP_ID_HERE"); returns "1.0"
-AppVersionCode(MainActivity.this, "APP_ID_HERE"); returns 1
+    //string
+    AppVersion(MainActivity.this, "APP_ID_HERE"); returns "1.0"
+    AppVersionCode(MainActivity.this, "APP_ID_HERE"); returns 1
 
-//views
+    //views
 
-//NOT void methods but actual snack, toast & progressDialog implementation! to use these declare them like this!
+    //NOT void methods but actual snack, toast & progressDialog implementation! to use these declare them like this!
 
-private SnackBar sn;
-private Toast to;
-private ProgressDialog pd;
+    private SnackBar sn;
+    private Toast to;
+    private ProgressDialog pd;
 
-sn = snackbar(View view, String string, int LENGTH);
+    sn = snackbar(View view, String string, int LENGTH);
 
-to = toast(Context context, String string, int LENGTH);
+    to = toast(Context context, String string, int LENGTH);
 
-pd = progressDialog(final Context context, int style, String message, boolean setIndeterminate, boolean setCancelable);
+    pd = progressDialog(final Context context, int style, String message, boolean setIndeterminate, boolean setCancelable);
 
-why?
 
-well so you could use them better since now you can call pd.show();/hide();/cancel();/dismiss();
+why? well so you could use them better since now you can call pd.show();/hide();/cancel();/dismiss();
 
 just like if you implemented yourself!
