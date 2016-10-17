@@ -1,23 +1,7 @@
-###I VAVE NO IDEA HOW TO USE JCENTER, BINTRAY, OR EVEN MAVEN....
-DOWNLOAD THE AAR HERE...https://github.com/Xstar97/easySocial/blob/master/easysocial-release.aar?raw=true
+
 # easySocial
 easily launch any social app with your page/profile/etc.
 
-pros:
-
-Adding social media integration is great for your app & users because it allows those same users to do the following:
-
-1. read up on your updates/messages/etc
-
-2. share crap about your app with all their friends/families/co-workers/you name it(more users may even try your app!)
-
-3. basically free advertisement/ratings shared to thousands of people!
-
-cons:
-
-Adding social media integration MAY NOT be great for your app & users because it allows those same users to LEAVE your app...& if you send them to a SOCIAL MEDIA APP...then they might not EVER return to your app...so bear that in mind!
-
-BUT, hey I am developer in his infancy so what the hell do I know?
 
 Have you ever found it difficult to add social media integration into any of your apps?
 
@@ -46,11 +30,11 @@ At The Moment I Only Support: "ATMIOS"
 
 -youtube
 
--rate app(basically open google play/aptoide/etc.(aptoide is not all about piracy & its a great SOURCE to distribute your app to!)
+-rate app(basically open google play/aptoide/etc.(aptoide is not all about piracy & its a great SOURCE to distribute your app too!)
 
 PLEASE request to add more social apps!
 
-this will be my first open source library ever & yes I will share code freely & even drop a jar/aar on jcenter still deciding which will be better.
+I may drop a jar/aar on jcenter very soon still deciding which will be better.
 
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
