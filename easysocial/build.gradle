@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'Xstar97'
+    bintrayName = 'EasySocial'
+
+    publishedGroupId = 'com.mcs.easysocial'
+    libraryName = 'EasySocial'
+    artifact = 'EasySocial'
+
+    libraryDescription = 'Easily launch social media apps with your social media pages/profiles/communities/etc!'
+
+    siteUrl = 'https://github.com/Xstar97/easySocial'
+    gitUrl = 'https://github.com/Xstar97/easySocial.git'
+    githubRepository= 'nisrulz/UploadToBintray'
+
+    libraryVersion = '1.0'
+
+    developerId = 'xstar97'
+    developerName = 'Xstar97'
+    developerEmail = 'miller97corey@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    testCompile 'junit:junit:4.12'
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
