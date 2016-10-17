@@ -30,11 +30,21 @@ At The Moment I Only Support: "ATMIOS"
 
 -youtube
 
--rate app(basically open google play/aptoide/etc.(aptoide is not all about piracy & its a great SOURCE to distribute your app too!)
+-rate app dialog//comming soon!
 
-PLEASE request to add more social apps!
+//to use this library please add this to your project level build gradle like this!
 
-I may drop a jar/aar on jcenter very soon still deciding which will be better.
+allprojects {
+    repositories {
+        ...
+        //this is my repo for now..waiting to add my library to jcenter!
+        maven {url = "https://dl.bintray.com/xstar97/Xstar97/" }
+        ...
+    }
+}
+
+//to use this library please add this to your app level build gradle!
+compile 'com.mcs.easysocial:easysocial:1.0'
 
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
