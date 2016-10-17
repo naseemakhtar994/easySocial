@@ -2,10 +2,10 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'Xstar97'
-    bintrayName = 'EasySocial'
+    bintrayName = 'easysocial'
 
     publishedGroupId = 'com.mcs.easysocial'
-    libraryName = 'EasySocial'
+    libraryName = 'easysocial'
     artifact = 'EasySocial'
 
     libraryDescription = 'Easily launch social media apps with your social media pages/profiles/communities/etc!'

@@ -27,7 +27,7 @@ public class EasyViewMod {
 
             pd.setIndeterminate(setIndeterminate);
             pd.setCancelable(setCancelable);
-        
+
         return pd;
     }
 }
