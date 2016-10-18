@@ -75,30 +75,28 @@ FACEBOOK_APP equals "app.id.here"
 
 
                        //this is for  facebook PAGE so do NOT use ID's for this one
-                       
                         if(!openFacebookPage(getActivity(), "millercreativestudio", true, "not installed!", "no connection!")){
-                            //app not installed...execute something here!
+                        //app not installed...execute something here!
                         }
                         
                         //this a for a facebook PROFILE it can accept number id's & "normal" user names!
-                        
                         if(!openFacebookProfile(getActivity(), "100004301467504", true, "not installed!", "no connection!")){
-                            //app not installed...execute something here!
+                        //app not installed...execute something here!
                         }
                         
                         if(!openTwitterProfile(getActivity(), "xstar97", true, "not installed!", "no connection!")){
-                            //app not installed...execute something here!
+                        //app not installed...execute something here!
                         }
                         
                         if(!openGooglePlusCommunity(getActivity(), "101286674025561115431", true, "not installed!", "no connection!")){
-                            //app not installed...execute something here!
+                        //app not installed...execute something here!
                         }
                         
-                        if(!openGooglePlusProfile(getActivity(), "115214989786701484331", true, "not installed!", "no connection!")){                               //app not installed...execute something here!
+                        if(!openGooglePlusProfile(getActivity(), "115214989786701484331", true, "not installed!", "no connection!")){                           //app not installed...execute something here!
                         }
                         
                         if(!openYouTubeVideo(getActivity(), "dQw4w9WgXcQ", true, "not installed!", "no connection!")){
-                            //app not installed...execute something here!
+                        //app not installed...execute something here!
                         }
                         
 you may be asking what happens throughout the code...well this is what is going on:
