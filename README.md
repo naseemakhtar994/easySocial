@@ -188,4 +188,5 @@ just like if you implemented yourself!
             Log.w("rateDialog: ", "neutral button was clicked!");
         }
     }
-                
+    
+    if this is unclear then please check the sample!
