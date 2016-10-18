@@ -54,10 +54,10 @@ Now that we got all that out of the way...lets see that magical code I keep talk
 
 I have the following public static strings:
 
-FACEBOOK_APP
-GOOGLE_PLUS_APP
-TWITTER_APP
-YOUTUBE_APP
+1. FACEBOOK_APP
+2. GOOGLE_PLUS_APP
+3. TWITTER_APP
+4. YOUTUBE_APP
 
 
 For EX:
@@ -112,11 +112,12 @@ if the app is not installed then you can add a webview or offer to launch google
 I also made the following static methods public too:
 
     //boolean
-    IsAppInstalled(MainActivity.this, "APP_ID_HERE");
+    IsAppInstalled(Context context, "APP_ID_HERE");
 
     //string
-    AppVersion(MainActivity.this, "APP_ID_HERE"); returns "1.0"
-    AppVersionCode(MainActivity.this, "APP_ID_HERE"); returns 1
+    AppVersion(Context context, "APP_ID_HERE"); returns "1.0"
+    
+    AppVersionCode(Context context, "APP_ID_HERE"); returns 1
 
     //views
 
@@ -133,9 +134,13 @@ I also made the following static methods public too:
     pd = progressDialog(final Context context, int style, String message, boolean setIndeterminate, boolean setCancelable);
 
 
-why? well so you could use them better since now you can call pd.show();/hide();/cancel();/dismiss();
-
-just like if you implemented yourself!
+    why? well so you could use them better since now you can call:
+    pd.show();
+    pd.hide();
+    pd.cancel();
+    pd.dismiss();
+    
+    just like if you implemented yourself!
 
 ###rate app dialog!
 
