@@ -1,5 +1,5 @@
+# easySocial <a href='https://bintray.com/xstar97/Xstar97/easysocial/_latestVersion'><img src='https://api.bintray.com/packages/xstar97/Xstar97/easysocial/images/download.svg'></a>
 
-# easySocial
 easily launch any social app with your page/profile/etc.
 
 
