@@ -31,7 +31,7 @@ At The Moment I Only Support: "ATMIOS"
 
 -youtube
 
--rate app dialog//comming soon!
+-rate app dialog
 
 //to use this library please add this to your project level build gradle like this!
 
@@ -48,7 +48,7 @@ At The Moment I Only Support: "ATMIOS"
 
 //to use this library please add this to your app level build gradle!
       
-    compile 'com.mcs.easysocial:easysocial:1.0'
+    compile 'com.mcs.easysocial:easysocial:1.1'
 
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
@@ -136,3 +136,56 @@ I also made the following static methods public too:
 why? well so you could use them better since now you can call pd.show();/hide();/cancel();/dismiss();
 
 just like if you implemented yourself!
+
+###rate app dialog!
+
+    1. add your own style
+    2. add your own title
+    3. add your own rate message
+    4. add your own no internet message
+    5. add your own positive onclick title
+    5. add your own negative onclick title
+    5. add your own neutral onclick title
+
+
+    FragmentManager fm = MainActivity.this.getSupportFragmentManager();
+                RateDialog rateDialog = RateDialog.newInstance(
+                        R.style.AppCompatAlertDialogStyle,
+                        "My title!",
+                        "Please rate my app on google play!",
+                        "no internet connection...bummer.",
+                        "Okay",
+                        "NO!",
+                        "dismiss"
+                );
+                rateDialog.show(fm, "rateDialog!");
+                
+                the first thing the dialog checks is for internet(whats the point of sending a user to google play/ alt play store if there is no internet?)
+                then gives 3 options
+                1. positive //automatically sends the users to the store!
+                2. negative //you can define your own action in the activity/fragment
+                3. neutral //you can define your own action in the activity/fragment
+                
+                to implement your own actions...(you technically can not override the positive  since will always send the user to the store, but you can do something though)
+                
+                the activity or fragments NEEDS to have this:
+                
+                implements RateDialog.MyRateDialogListener {
+                
+                
+                then add this:
+                
+                @Override
+    public void handleDialogListener(String onClick) {
+
+        if(onClick.equals(DIALOG_ONCLICK_POSITIVE)){
+            Log.w("rateDialog: ", "positive button was clicked!");
+        }
+        else if(onClick.equals(DIALOG_ONCLICK_NEGATIVE)){
+            Log.w("rateDialog: ", "negative button was clicked!");
+        }
+        else if(onClick.equals(DIALOG_ONCLICK_NEUTRAL)){
+            Log.w("rateDialog: ", "neutral button was clicked!");
+        }
+    }
+                
