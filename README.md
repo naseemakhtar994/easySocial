@@ -33,8 +33,8 @@ At The Moment I Only Support: "ATMIOS"
 
 -rate app dialog
 
-//to use this library please add this to your project level build gradle like this!
-
+    //optional: library now on jcenter!
+    //to use this library please add this to your project level build gradle like this!
     allprojects {
     repositories {
         ...
