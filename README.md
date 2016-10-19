@@ -173,13 +173,13 @@ I also made the following static methods public too:
                 
                 the activity or fragments NEEDS to have this:
                 
-                implements RateDialog.MyRateDialogListener {
+                implements RateDialog.RateDialogListener {
                 
                 
                 then add this:
                 
                 @Override
-    public void handleDialogListener(String onClick) {
+    public void handleRateDialogListener(String onClick) {
 
         if(onClick.equals(DIALOG_ONCLICK_POSITIVE)){
             Log.w("rateDialog: ", "positive button was clicked!");
