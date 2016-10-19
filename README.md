@@ -48,7 +48,7 @@ At The Moment I Only Support: "ATMIOS"
 
 //to use this library please add this to your app level build gradle!
       
-    compile 'com.mcs.easysocial:easysocial:1.1'
+    compile 'com.mcs.easysocial:easysocial:1.1.2'
 
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
