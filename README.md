@@ -148,8 +148,7 @@ I also made the following static methods public too:
 
     or
 
-    Use my own custom dialog:
-    https://github.com/Xstar97/easySocial/blob/master/app/src/main/java/com/mcs/easysocialsample/RateDialog.java
+    Use my own custom dialog: <a href="https://github.com/Xstar97/easySocial/blob/master/app/src/main/java/com/mcs/easysocialsample/RateDialog.java>RateDialog</a>
    
     1. add your own style
     2. add your own title
