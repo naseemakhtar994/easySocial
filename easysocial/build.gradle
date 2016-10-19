@@ -14,7 +14,7 @@ ext {
     gitUrl = 'https://github.com/Xstar97/easySocial.git'
     githubRepository= 'Xstar97/easySocial'
 
-    libraryVersion = '1.1'
+    libraryVersion = '1.1.1'
 
     developerId = 'xstar97'
     developerName = 'Xstar97'

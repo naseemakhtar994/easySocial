@@ -16,8 +16,7 @@ import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEGATIVE;
 import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEUTRAL;
 import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_POSITIVE;
 
-public class MainActivity extends AppCompatActivity implements RateDialog.MyRateDialogListener {
-
+public class MainActivity extends AppCompatActivity implements RateDialog.RateDialogListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements RateDialog.MyRate
     }
 
     @Override
-    public void handleDialogListener(String onClick) {
+    public void handleRateDialogListener(String onClick) {
 
         if(onClick.equals(DIALOG_ONCLICK_POSITIVE)){
             Log.w("rateDialog: ", "positive button was clicked!");

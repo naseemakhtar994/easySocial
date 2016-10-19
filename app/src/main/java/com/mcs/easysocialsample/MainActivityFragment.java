@@ -3,14 +3,16 @@ package com.mcs.easysocialsample;
 import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mcs.easysocial.RateDialog;
 import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
 
 import java.util.ArrayList;
@@ -28,8 +30,11 @@ import static com.mcs.easysocial.EasySocialAppMod.openGooglePlusProfile;
 import static com.mcs.easysocial.EasySocialAppMod.openTwitterProfile;
 import static com.mcs.easysocial.EasySocialAppMod.openYouTubeVideo;
 import static com.mcs.easysocial.EasyViewMod.progressDialog;
+import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEGATIVE;
+import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEUTRAL;
+import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_POSITIVE;
 
-public class MainActivityFragment extends Fragment {
+public class MainActivityFragment extends Fragment implements RateDialog.RateDialogListener {
 
     private Unbinder unbinder;
     private List<SocialApp> socialList = new ArrayList<>();
@@ -99,6 +104,20 @@ public class MainActivityFragment extends Fragment {
                         }
                         break;
 
+                    case 6:
+                        FragmentManager fm = getActivity().getSupportFragmentManager();
+                        RateDialog rateDialog = RateDialog.newInstance(
+                                R.style.AppCompatAlertDialogStyle,
+                                "My title!",
+                                "Please rate my app on google play!",
+                                "no internet connection...bummer.",
+                                "Okay",
+                                "NO!",
+                                "dismiss"
+                        );
+                        rateDialog.show(fm, "rateDialog!");
+                        break;
+
                     default:
                         break;
                 }
@@ -107,6 +126,21 @@ public class MainActivityFragment extends Fragment {
         });
 
     }
+
+    @Override
+    public void handleRateDialogListener(String onClick) {
+
+        if(onClick.equals(DIALOG_ONCLICK_POSITIVE)){
+            Log.w("rateDialog: ", "positive button was clicked!");
+        }
+        else if(onClick.equals(DIALOG_ONCLICK_NEGATIVE)){
+            Log.w("rateDialog: ", "negative button was clicked!");
+        }
+        else if(onClick.equals(DIALOG_ONCLICK_NEUTRAL)){
+            Log.w("rateDialog: ", "neutral button was clicked!");
+        }
+    }
+
     private boolean isNetWorkAvailable(){
         return isOnline(getActivity());
     }
@@ -128,6 +162,9 @@ public class MainActivityFragment extends Fragment {
         socialList.add(social);
 
         social = new SocialApp("open YouTube Video");
+        socialList.add(social);
+
+        social = new SocialApp("rate app");
         socialList.add(social);
 
         socialdapter.notifyDataSetChanged();

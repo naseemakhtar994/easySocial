@@ -1,12 +1,14 @@
 package com.mcs.easysocial;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AlertDialog;
 
 import static com.mcs.easysocial.EasyNetworkMod.isOnline;
@@ -33,8 +35,8 @@ public class RateDialog extends DialogFragment
         super.onResume();
     }
 
-    public interface MyRateDialogListener {
-        void handleDialogListener(String onCLick);
+    public interface RateDialogListener {
+        void handleRateDialogListener(String onCLick);
     }
 
     public static RateDialog newInstance(int style, String title, String rate_message,  String no_internet, String Positive_Button, String Negative_Button, String Neutral_Button) {
@@ -69,15 +71,17 @@ public class RateDialog extends DialogFragment
                     } catch (android.content.ActivityNotFoundException anfe) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
                     }
-                    MyRateDialogListener listener = (MyRateDialogListener) getActivity();
-                    listener.handleDialogListener(DIALOG_ONCLICK_POSITIVE);
+                    //RateDialogListener listener = (RateDialogListener) getActivity();
+                    //listener.handleRateDialogListener(DIALOG_ONCLICK_POSITIVE);
+                    listener(getContext(), DIALOG_ONCLICK_POSITIVE);
                 }
             });
             builder.setNegativeButton(myNegAction(), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    MyRateDialogListener listener = (MyRateDialogListener) getActivity();
-                    listener.handleDialogListener(DIALOG_ONCLICK_NEGATIVE);
+                    //RateDialogListener listener = (RateDialogListener) getActivity();
+                    //listener.handleRateDialogListener(DIALOG_ONCLICK_NEGATIVE);
+                    listener(getContext(), DIALOG_ONCLICK_NEGATIVE);
                 }
             });
         }
@@ -87,13 +91,19 @@ public class RateDialog extends DialogFragment
         builder.setNeutralButton(myNueAction(),  new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                MyRateDialogListener listener = (MyRateDialogListener) getActivity();
-                listener.handleDialogListener(DIALOG_ONCLICK_NEUTRAL);
+                //RateDialogListener listener = (RateDialogListener) getActivity();
+                //listener.handleRateDialogListener(DIALOG_ONCLICK_NEUTRAL);
+                listener(getContext(), DIALOG_ONCLICK_NEUTRAL);
                 dialog.dismiss();
 
             }
         });
         return builder.create();
+    }
+    private RateDialogListener listener(Context context, String onClick){
+        RateDialogListener listener = (RateDialogListener) context;
+        listener.handleRateDialogListener(onClick);
+        return listener;
     }
     private String app(){
         return getActivity().getApplicationContext().getPackageName();
