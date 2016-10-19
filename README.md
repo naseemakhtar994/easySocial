@@ -142,12 +142,15 @@ I also made the following static methods public too:
 
 ###rate app dialog!
 
-    create a dialog or used my own custom dialog:
-    https://github.com/Xstar97/easySocial/blob/master/app/src/main/java/com/mcs/easysocialsample/RateDialog.java
-    
+    Create your own dialog and use the following:
     //use this in the positive onClick if you are creating your own dialog
     rateApp(Context context);
 
+    or
+
+    Use my own custom dialog:
+    https://github.com/Xstar97/easySocial/blob/master/app/src/main/java/com/mcs/easysocialsample/RateDialog.java
+   
     1. add your own style
     2. add your own title
     3. add your own rate message
