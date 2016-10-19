@@ -7,12 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mcs.easysocial.RateDialog;
 import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
 
 import java.util.ArrayList;
@@ -30,11 +28,8 @@ import static com.mcs.easysocial.EasySocialAppMod.openGooglePlusProfile;
 import static com.mcs.easysocial.EasySocialAppMod.openTwitterProfile;
 import static com.mcs.easysocial.EasySocialAppMod.openYouTubeVideo;
 import static com.mcs.easysocial.EasyViewMod.progressDialog;
-import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEGATIVE;
-import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEUTRAL;
-import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_POSITIVE;
 
-public class MainActivityFragment extends Fragment implements RateDialog.RateDialogListener {
+public class MainActivityFragment extends Fragment {
 
     private Unbinder unbinder;
     private List<SocialApp> socialList = new ArrayList<>();
@@ -125,20 +120,6 @@ public class MainActivityFragment extends Fragment implements RateDialog.RateDia
             }
         });
 
-    }
-
-    @Override
-    public void handleRateDialogListener(String onClick) {
-
-        if(onClick.equals(DIALOG_ONCLICK_POSITIVE)){
-            Log.w("rateDialog: ", "positive button was clicked!");
-        }
-        else if(onClick.equals(DIALOG_ONCLICK_NEGATIVE)){
-            Log.w("rateDialog: ", "negative button was clicked!");
-        }
-        else if(onClick.equals(DIALOG_ONCLICK_NEUTRAL)){
-            Log.w("rateDialog: ", "neutral button was clicked!");
-        }
     }
 
     private boolean isNetWorkAvailable(){

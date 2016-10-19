@@ -5,18 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.mcs.easysocial.RateDialog;
-
-import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEGATIVE;
-import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_NEUTRAL;
-import static com.mcs.easysocial.RateDialog.DIALOG_ONCLICK_POSITIVE;
-
-public class MainActivity extends AppCompatActivity implements RateDialog.RateDialogListener {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +20,7 @@ public class MainActivity extends AppCompatActivity implements RateDialog.RateDi
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 FragmentManager fm = MainActivity.this.getSupportFragmentManager();
                 RateDialog rateDialog = RateDialog.newInstance(
                         R.style.AppCompatAlertDialogStyle,
@@ -44,19 +36,6 @@ public class MainActivity extends AppCompatActivity implements RateDialog.RateDi
         });
     }
 
-    @Override
-    public void handleRateDialogListener(String onClick) {
-
-        if(onClick.equals(DIALOG_ONCLICK_POSITIVE)){
-            Log.w("rateDialog: ", "positive button was clicked!");
-        }
-        else if(onClick.equals(DIALOG_ONCLICK_NEGATIVE)){
-            Log.w("rateDialog: ", "negative button was clicked!");
-        }
-        else if(onClick.equals(DIALOG_ONCLICK_NEUTRAL)){
-            Log.w("rateDialog: ", "neutral button was clicked!");
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
