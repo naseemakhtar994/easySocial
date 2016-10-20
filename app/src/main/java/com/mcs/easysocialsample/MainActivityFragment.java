@@ -88,7 +88,7 @@ public class MainActivityFragment extends Fragment {
                         break;
 
                     case 4:
-                        if(!openGooglePlusProfile(getActivity(), "", true, "not installed!", "no connection!")){
+                        if(!openGooglePlusProfile(getActivity(), "103894001615704696473", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
                         }
                         break;
