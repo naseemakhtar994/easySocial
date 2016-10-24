@@ -33,8 +33,9 @@ At The Moment I Only Support: "ATMIOS"
 
 -rate app dialog
 
-    //optional: library now on jcenter!
-    //to use this library please add this to your project level build gradle like this!
+library now on jcenter!
+optional: to use this library please add this to your project level build gradle like this!
+    
     allprojects {
     repositories {
         ...
@@ -46,9 +47,9 @@ At The Moment I Only Support: "ATMIOS"
         ...
     }}
 
-//to use this library please add this to your app level build gradle!
+To use this library please add this to your app level build gradle!
       
-    compile 'com.mcs.easysocial:easysocial:1.1.2'
+    compile 'com.mcs.easysocial:easysocial:1.1.3'
 
 Now that we got all that out of the way...lets see that magical code I keep talking about!
 
@@ -60,12 +61,13 @@ I have the following public static strings:
 4. YOUTUBE_APP
 
 
-For EX:
+Example:
+
 FACEBOOK_APP equals "app.id.here"
 
-//this way you dont have to worry about app id's
+(this way you dont have to worry about the social app id's)
 
-//only 3 lines of codes gets you up & running!
+Only 3 lines of codes gets you up & running!
 
 1. must delare getActivity() OR activityName.this
 
@@ -74,27 +76,37 @@ FACEBOOK_APP equals "app.id.here"
 3. provide your own strings for the toast to use(if boolean is set to false you can set both strings as "" or leave them as is)
 
 
-                       //this is for  facebook PAGE so do NOT use ID's for this one
+this is for facebook PAGE only! so do NOT use ID's for this one!
+    
                         if(!openFacebookPage(getActivity(), "millercreativestudio", true, "not installed!", "no connection!")){
                         //app not installed...execute something here!
                         }
                         
-                        //this a for a facebook PROFILE it can accept number id's & "normal" user names!
+this is for a facebook PROFILE only! it can accept number id's & "normal" user names!
+
                         if(!openFacebookProfile(getActivity(), "100004301467504", true, "not installed!", "no connection!")){
                         //app not installed...execute something here!
                         }
                         
+this is for a twitter PROFILE only!
+
                         if(!openTwitterProfile(getActivity(), "xstar97", true, "not installed!", "no connection!")){
                         //app not installed...execute something here!
                         }
                         
+this is for a Google Plus Community only!
+                        
                         if(!openGooglePlusCommunity(getActivity(), "101286674025561115431", true, "not installed!", "no connection!")){
                         //app not installed...execute something here!
                         }
-                        
+
+this is for a Google Plus PROFILE only!
+
                         if(!openGooglePlusProfile(getActivity(), "115214989786701484331", true, "not installed!", "no connection!")){                           //app not installed...execute something here!
                         }
-                        
+
+this is for a YouTube Video only!
+
                         if(!openYouTubeVideo(getActivity(), "dQw4w9WgXcQ", true, "not installed!", "no connection!")){
                         //app not installed...execute something here!
                         }
@@ -105,20 +117,73 @@ you may be asking what happens throughout the code...well this is what is going 
 2. checks if the app is installed. 
 
 If both return true then it launches the social media app with your page/profile/community/etc....however if any return false a toast message will show stating either no internet access or app not installed...
-if the app is not installed then you can add a webview or offer to launch google play in the false clause of the boolean!
+if the app is not installed then you can add a webview or offer to launch google play or something! in the false clause of the boolean!
 
-I also made the following static methods public too:
+###Dialogs!
 
-    //boolean
+   Create your own dialog and use the following: use this in the positive onClick if you are creating your own dialog
+    
+       rateApp(Context context);
+
+    or
+
+    Use my own custom dialog:
+    
+https://github.com/Xstar97/easySocial/blob/master/app/src/main/java/com/mcs/easysocialsample/RateDialog.java
+   
+1. add your own style
+2. add your own title
+3. add your own rate message
+4. add your own no internet message
+5. add your own positive onclick title
+6. add your own negative onclick title
+7. add your own neutral onclick title
+
+
+       FragmentManager fm = MainActivity.this.getSupportFragmentManager();
+                RateDialog rateDialog = RateDialog.newInstance(
+                        R.style.AppCompatAlertDialogStyle,
+                        "My title!",
+                        "Please rate my app on google play!",
+                        "no internet connection...bummer.",
+                        "Okay",
+                        "NO!",
+                        "dismiss"
+                );
+                rateDialog.show(fm, "rateDialog!");
+                
+###Drawables (NEW FEATURE)
+you can now easily grab a drawable from any app by using the following code:
+
+getAppIcon(Context context, String pkgID, Drawable appNotInstalled);
+
+the above code checks for the app is installed & grabs the app's icon for you to use!
+However if the app is not installed you can display your own custom icon(its better than showing no image!)
+
+###Booleans
+
     IsAppInstalled(Context context, "APP_ID_HERE");
 
-    //string
+    isEmpty(String s);
+    isNotEmpty(String s);//redundant forgot to remove it
+    containsDigit(String s);
+
+###Strings
+
+    appPackageName(Context context);
+    intToString(int number);
     AppVersion(Context context, "APP_ID_HERE"); returns "1.0"
-    
     AppVersionCode(Context context, "APP_ID_HERE"); returns 1
 
-    //views
+###Int
 
+    stringToInt(String string);
+
+###Others
+
+    I also made the following static methods public too:
+    
+    //views
     //NOT void methods but actual snack, toast & progressDialog implementation! to use these declare them like this!
 
     private SnackBar sn;
@@ -139,37 +204,3 @@ I also made the following static methods public too:
     pd.dismiss();
     
     just like if you implemented yourself!
-
-###rate app dialog!
-
-    Create your own dialog and use the following:
-    //use this in the positive onClick if you are creating your own dialog
-    rateApp(Context context);
-
-    or
-
-    Use my own custom dialog:
-    
-https://github.com/Xstar97/easySocial/blob/master/app/src/main/java/com/mcs/easysocialsample/RateDialog.java
-   
-    1. add your own style
-    2. add your own title
-    3. add your own rate message
-    4. add your own no internet message
-    5. add your own positive onclick title
-    5. add your own negative onclick title
-    5. add your own neutral onclick title
-
-
-    FragmentManager fm = MainActivity.this.getSupportFragmentManager();
-                RateDialog rateDialog = RateDialog.newInstance(
-                        R.style.AppCompatAlertDialogStyle,
-                        "My title!",
-                        "Please rate my app on google play!",
-                        "no internet connection...bummer.",
-                        "Okay",
-                        "NO!",
-                        "dismiss"
-                );
-                rateDialog.show(fm, "rateDialog!");
-                
