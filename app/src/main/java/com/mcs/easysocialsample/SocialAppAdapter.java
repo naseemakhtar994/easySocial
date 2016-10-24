@@ -32,7 +32,10 @@ public class SocialAppAdapter extends RecyclerView.Adapter<SocialAppViewHolder>
     @Override
     public void onBindViewHolder(SocialAppViewHolder ViewHolder, int i) {
         SocialApp model = list.get(i);
+        ViewHolder.icon.setImageDrawable(model.getSocial_icon());
         ViewHolder.title.setText(model.getSocial_title());
+        ViewHolder.installed.setText(model.getSocial_installed());
+        ViewHolder.version.setText(model.getSocial_version());
     }
 
     @Override

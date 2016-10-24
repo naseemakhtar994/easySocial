@@ -1,11 +1,8 @@
 package com.mcs.easysocialsample;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,23 +14,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                FragmentManager fm = MainActivity.this.getSupportFragmentManager();
-                RateDialog rateDialog = RateDialog.newInstance(
-                        R.style.AppCompatAlertDialogStyle,
-                        "My title!",
-                        "Please rate my app on google play!",
-                        "no internet connection...bummer.",
-                        "Okay",
-                        "NO!",
-                        "dismiss"
-                );
-                rateDialog.show(fm, "rateDialog!");
-            }
-        });
     }
 
 

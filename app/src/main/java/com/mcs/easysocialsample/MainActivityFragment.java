@@ -1,6 +1,8 @@
 package com.mcs.easysocialsample;
 
 import android.app.ProgressDialog;
+import android.graphics.drawable.Drawable;
+import android.sax.RootElement;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -10,16 +12,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static com.mcs.easysocial.EasyAppMod.AppVersion;
+import static com.mcs.easysocial.EasyAppMod.AppVersionCode;
+import static com.mcs.easysocial.EasyAppMod.FACEBOOK_APP;
+import static com.mcs.easysocial.EasyAppMod.GOOGLE_PLUS_APP;
+import static com.mcs.easysocial.EasyAppMod.IfAppIsInstalled;
+import static com.mcs.easysocial.EasyAppMod.TWITTER_APP;
+import static com.mcs.easysocial.EasyAppMod.YOUTUBE_APP;
+import static com.mcs.easysocial.EasyAppMod.appPackageName;
+import static com.mcs.easysocial.EasyAppMod.getAppIcon;
 import static com.mcs.easysocial.EasyNetworkMod.isOnline;
 import static com.mcs.easysocial.EasySocialAppMod.openFacebookPage;
 import static com.mcs.easysocial.EasySocialAppMod.openFacebookProfile;
@@ -37,6 +50,11 @@ public class MainActivityFragment extends Fragment {
     private ProgressDialog mProgressDialog;
 
     @BindView(R.id.social_apps_list) RecyclerView social_apps_list;
+    @BindDrawable(R.drawable.ic_facebook) Drawable Social_Facebook;
+    @BindDrawable(R.drawable.ic_twitter) Drawable Social_Twitter;
+    @BindDrawable(R.drawable.ic_google_plus) Drawable Social_Google_Plus;
+    @BindDrawable(R.drawable.ic_youtube) Drawable Social_YouTube;
+    @BindDrawable(R.drawable.ic_review) Drawable Social_Rate;
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
@@ -66,36 +84,66 @@ public class MainActivityFragment extends Fragment {
 
                         if(!openFacebookPage(getActivity(), "millercreativestudio", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
+                            FragmentManager fmWV = getActivity().getSupportFragmentManager();
+                            WebViewDialog wvDialog = WebViewDialog.newInstance(
+                                    "https://www.facebook.com/" + "millercreativestudio"
+                            );
+                            wvDialog.show(fmWV, "WVDialog!");
                         }
                         break;
 
                     case 1:
                         if(!openFacebookProfile(getActivity(), "100004301467504", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
+                            FragmentManager fmWV = getActivity().getSupportFragmentManager();
+                            WebViewDialog wvDialog = WebViewDialog.newInstance(
+                                    "https://www.facebook.com/profile.php?id=" + "100004301467504"
+                            );
+                            wvDialog.show(fmWV, "WVDialog!");
                         }
                         break;
 
                     case 2:
                         if(!openTwitterProfile(getActivity(), "xstar97", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
+                            FragmentManager fmWV = getActivity().getSupportFragmentManager();
+                            WebViewDialog wvDialog = WebViewDialog.newInstance(
+                                    "https://www.twitter.com/" + "xstar97"
+                            );
+                            wvDialog.show(fmWV, "WVDialog!");
                         }
                         break;
 
                     case 3:
                         if(!openGooglePlusCommunity(getActivity(), "101286674025561115431", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
+                            FragmentManager fmWV = getActivity().getSupportFragmentManager();
+                            WebViewDialog wvDialog = WebViewDialog.newInstance(
+                                    "https://plus.google.com/communities/" + "101286674025561115431"
+                            );
+                            wvDialog.show(fmWV, "WVDialog!");
                         }
                         break;
 
                     case 4:
                         if(!openGooglePlusProfile(getActivity(), "103894001615704696473", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
+                            FragmentManager fmWV = getActivity().getSupportFragmentManager();
+                            WebViewDialog wvDialog = WebViewDialog.newInstance(
+                                    "https://plus.google.com/" + "103894001615704696473"
+                            );
+                            wvDialog.show(fmWV, "WVDialog!");
                         }
                         break;
 
                     case 5:
                         if(!openYouTubeVideo(getActivity(), "dQw4w9WgXcQ", true, "not installed!", "no connection!")){
                             //app not installed...execute something here!
+                            FragmentManager fmWV = getActivity().getSupportFragmentManager();
+                            WebViewDialog wvDialog = WebViewDialog.newInstance(
+                                    "https://www.youtube.com/watch?v=" + "dQw4w9WgXcQ"
+                            );
+                            wvDialog.show(fmWV, "WVDialog!");
                         }
                         break;
 
@@ -121,31 +169,49 @@ public class MainActivityFragment extends Fragment {
         });
 
     }
-
+    private String MY_APP_NAME(){
+        return appPackageName(getActivity());
+    }
     private boolean isNetWorkAvailable(){
         return isOnline(getActivity());
+    }
+    private Drawable socialIcon(String appId, Drawable appNotInstalled){
+        return getAppIcon(getActivity(), appId, appNotInstalled);
+    }
+    private boolean isInstalled(String app){
+        return IfAppIsInstalled(getActivity(), app);
+    }
+    private String Version(String app){
+        if(isInstalled(app))
+        {
+            return "version: "+ AppVersion(getActivity(), app) + "(" + AppVersionCode(getActivity(), app) + ")";
+        }
+        else
+        {
+            return "version not available!";
+        }
     }
 
     private void socialappList(){
         socialList.clear();
 
-        SocialApp social = new SocialApp("open Facebook Page");
+        SocialApp social = new SocialApp(socialIcon(FACEBOOK_APP, Social_Facebook), "Facebook Page", "installed: " + isInstalled(FACEBOOK_APP), Version(FACEBOOK_APP));
         socialList.add(social);
-        social = new SocialApp("open Facebook Profile");
-        socialList.add(social);
-
-        social = new SocialApp("open Twitter Profile");
+        social = new SocialApp(socialIcon(FACEBOOK_APP, Social_Facebook), "facebook Profile", "installed: " + isInstalled(FACEBOOK_APP), Version(FACEBOOK_APP));
         socialList.add(social);
 
-        social = new SocialApp("open Google Plus Community");
-        socialList.add(social);
-        social = new SocialApp("open Google Plus profile");
+        social = new SocialApp(socialIcon(TWITTER_APP, Social_Twitter), "Twitter Profile", "installed: " + isInstalled(TWITTER_APP), Version(TWITTER_APP));
         socialList.add(social);
 
-        social = new SocialApp("open YouTube Video");
+        social = new SocialApp(socialIcon(GOOGLE_PLUS_APP, Social_Google_Plus), "Google+ Community", "installed: " + isInstalled(GOOGLE_PLUS_APP), Version(GOOGLE_PLUS_APP));
+        socialList.add(social);
+        social = new SocialApp(socialIcon(GOOGLE_PLUS_APP, Social_Google_Plus), "Google+ profile", "installed: " + isInstalled(GOOGLE_PLUS_APP), Version(GOOGLE_PLUS_APP));
         socialList.add(social);
 
-        social = new SocialApp("rate app");
+        social = new SocialApp(socialIcon(YOUTUBE_APP, Social_YouTube), "YouTube Video", "installed: " + isInstalled(YOUTUBE_APP), Version(YOUTUBE_APP));
+        socialList.add(social);
+
+        social = new SocialApp(Social_Rate, "rate app", "installed: " + isInstalled(MY_APP_NAME()) + " (DUH!)", Version(MY_APP_NAME()));
         socialList.add(social);
 
         socialdapter.notifyDataSetChanged();
@@ -154,6 +220,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+
         if(mProgressDialog != null){
             mProgressDialog.hide();
         }

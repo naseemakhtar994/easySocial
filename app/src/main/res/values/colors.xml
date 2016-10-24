@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="colorWhite">#ffffff</color>
+
     <color name="isSelected">@android:color/holo_blue_bright</color>
     <color name="unSelected">@android:color/transparent</color>
 
