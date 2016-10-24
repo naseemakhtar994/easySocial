@@ -34,6 +34,7 @@ At The Moment I Only Support: "ATMIOS"
 -rate app dialog
 
 library now on jcenter!
+
 optional: to use this library please add this to your project level build gradle like this!
     
     allprojects {
